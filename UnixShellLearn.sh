@@ -63,5 +63,56 @@ a="right"
 b="wrong"
 if [[ $a == $b ]]
 then
-printf "right"
+printf "not equal\n"
 elif [[ $a != $b ]]
+then
+ printf "equal\n"
+fi
+
+for var in `ls ../../`
+do
+ printf "${var}\n"
+done
+
+c=4
+while (( $c != 0 ))
+do
+ printf "$c\n"
+ c=$[c-1]
+done 
+
+# while :  always loop
+# until reverse the logic of while
+
+a=2
+case $a in
+ 1)
+ printf "just 1\n"
+ ;;
+ 2)
+ printf "only 2\n"
+ ;;
+ esac
+
+ # we have break continue too
+
+ # function
+funWithParam() {
+    printf "first parameter $1 !\n"
+    printf "second parameter $2 !\n"
+}
+funWithParam 1 2
+echo $?
+
+# familiar with import other file
+source shell2.sh
+echo ${value}
+
+read param
+echo ${param}
+
+# code with color
+printf "\033[032m SUCCESS: yay \033[0m\n"
+printf "\033[033m WARNING: hmm \033[0m\n"
+printf "\033[031m ERROR: fubar \033[0m\n"
+printf "\033[034m ANYTHING: posiible \033[0m\n"
