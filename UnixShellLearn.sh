@@ -40,5 +40,28 @@ echo $path
 ### (( $a -eq $b )) mainly for number verification
 
 # output
-echo $[3+4]
-printf "%-10s %-8s %-4.2f\n" 
+printf "%-10s %-8s %-4.2f\n" jiangnanmeiye man 4.6576
+
+# process control
+a=1
+b=2
+if [ $a -lt $b ]
+then
+ printf "right\n"
+fi
+
+a=3
+b=4
+if (( $a == $b ))
+then
+ printf "right\n"
+else
+printf "wrong\n"
+fi
+
+a="right"
+b="wrong"
+if [[ $a == $b ]]
+then
+printf "right"
+elif [[ $a != $b ]]
